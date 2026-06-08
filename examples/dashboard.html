@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SEO Report. acme-invoicing.com. The SEO Agent</title>
+<style>
+  :root {
+    --brand: #1E40FF;
+    --signal: #F5A524;
+    --ink: #0B0B0F;
+    --muted: #5B5F6B;
+    --line: #E4E5EA;
+    --bg: #FBFBFC;
+    --card: #FFFFFF;
+    --buy: #1E40FF;
+    --compare: #7A3DF5;
+    --learn: #0E7A53;
+    --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 40px 24px 80px; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--muted);
+  }
+  .ping {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--signal); margin-right: 6px; vertical-align: middle;
+  }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 36px; }
+  header h1 { font-size: 30px; margin: 10px 0 4px; letter-spacing: -0.01em; }
+  header .sub { color: var(--muted); font-size: 14px; }
+  .badge {
+    display: inline-block; font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--brand); border: 1px solid var(--brand);
+    border-radius: 6px; padding: 3px 8px; margin-left: 8px;
+  }
+  section { margin: 44px 0; }
+  .sec-head { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px; }
+  .sec-head b { color: var(--ink); }
+  h2 { font-size: 20px; margin: 0 0 14px; letter-spacing: -0.01em; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+  .grid-cards { display: grid; gap: 12px; }
+  .finding { display: flex; gap: 12px; align-items: flex-start; }
+  .finding .sev {
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    border-radius: 5px; padding: 2px 7px; white-space: nowrap; margin-top: 2px;
+  }
+  .sev.hi { background: #FDECEC; color: #B42318; }
+  .sev.mid { background: #FEF4E6; color: #B5630A; }
+  .finding .what { font-size: 14px; }
+  .finding .url { font-family: var(--mono); font-size: 12px; color: var(--muted); word-break: break-all; }
+  .stat-row { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 4px; }
+  .stat .n { font-family: var(--mono); font-size: 26px; color: var(--brand); }
+  .stat .l { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th {
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); cursor: pointer; user-select: none; white-space: nowrap;
+  }
+  th:hover { color: var(--ink); }
+  th[data-active]::after { content: ' \2193'; }
+  th[data-active='asc']::after { content: ' \2191'; }
+  td.kw { font-weight: 500; }
+  .pill {
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em;
+    border-radius: 5px; padding: 2px 7px; color: #fff;
+  }
+  .pill.BUY { background: var(--buy); }
+  .pill.COMPARE { background: var(--compare); }
+  .pill.LEARN { background: var(--learn); }
+  .opp { display: flex; align-items: center; gap: 8px; }
+  .opp .bar { height: 6px; width: 70px; background: var(--line); border-radius: 3px; overflow: hidden; }
+  .opp .bar > i { display: block; height: 100%; background: var(--brand); }
+  .opp .v { font-family: var(--mono); font-size: 12px; color: var(--muted); width: 22px; }
+  .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 12px; flex-wrap: wrap; }
+  .est { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  button.btn {
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 6px;
+    padding: 7px 12px; cursor: pointer;
+  }
+  button.btn:hover { border-color: var(--ink); }
+  .cal { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+  .cal .day { border: 1px solid var(--line); border-radius: 8px; padding: 10px; background: var(--card); }
+  .cal .day .d { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
+  .cal .day .t { font-size: 12.5px; margin-top: 4px; line-height: 1.35; }
+  .cal .day.done { border-color: var(--brand); }
+  .cal .day.done .d { color: var(--brand); }
+  .article-preview { font-family: var(--sans); }
+  .article-preview h3 { font-size: 18px; margin: 0 0 6px; }
+  .article-preview p { color: #2A2D36; font-size: 14px; }
+  .article-preview .meta { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+  .cta {
+    margin-top: 48px; border: 1px solid var(--brand); border-radius: 12px;
+    padding: 28px; background: #fff;
+  }
+  .cta .k { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand); }
+  .cta h2 { font-size: 22px; margin: 10px 0 8px; }
+  .cta p { color: var(--muted); font-size: 14.5px; margin: 0 0 18px; max-width: 60ch; }
+  .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  a.cta-primary {
+    display: inline-block; background: var(--brand); color: #fff; text-decoration: none;
+    font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 11px 18px; border-radius: 6px;
+  }
+  a.cta-secondary {
+    display: inline-block; color: var(--brand); text-decoration: none;
+    font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 11px 4px;
+  }
+  footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  footer a { color: var(--brand); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow"><span class="ping"></span>The SEO Agent // SEO Report <span class="badge">Sample</span></div>
+    <h1>acme-invoicing.com</h1>
+    <div class="sub">Invoicing software for freelancers. Generated locally by The SEO Agent skill. Volumes are estimates.</div>
+  </header>
+
+  <section>
+    <div class="sec-head"><b>01</b> &nbsp; Site audit</div>
+    <div class="card grid-cards">
+      <div class="stat-row" style="margin-bottom:8px">
+        <div class="stat"><div class="n">18</div><div class="l">pages scanned</div></div>
+        <div class="stat"><div class="n">5</div><div class="l">fixable issues</div></div>
+        <div class="stat"><div class="n">6</div><div class="l">thin pages</div></div>
+      </div>
+      <div class="finding"><span class="sev hi">missing</span><div><div class="what">No meta description on the pricing page.</div><div class="url">acme-invoicing.com/pricing</div></div></div>
+      <div class="finding"><span class="sev hi">duplicate</span><div><div class="what">Three blog posts share the same title tag.</div><div class="url">acme-invoicing.com/blog/*</div></div></div>
+      <div class="finding"><span class="sev mid">thin</span><div><div class="what">Features page is 140 words. Too thin to rank for "invoicing software".</div><div class="url">acme-invoicing.com/features</div></div></div>
+      <div class="finding"><span class="sev mid">orphan</span><div><div class="what">The freelancer guide has no internal links pointing to it.</div><div class="url">acme-invoicing.com/guides/freelancer-invoicing</div></div></div>
+      <div class="finding"><span class="sev mid">h1</span><div><div class="what">Homepage has two H1 tags. Should be one.</div><div class="url">acme-invoicing.com/</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><b>02</b> &nbsp; Keywords</div>
+    <div class="toolbar">
+      <div class="est">Click a column to sort. Volume is estimated, not measured.</div>
+      <button class="btn" id="csvBtn">Export CSV</button>
+    </div>
+    <div class="card">
+      <table id="kwTable">
+        <thead>
+          <tr>
+            <th data-key="keyword">Keyword</th>
+            <th data-key="intent">Intent</th>
+            <th data-key="est_volume">Est. volume</th>
+            <th data-key="opportunity" data-active="desc">Opportunity</th>
+            <th data-key="cluster">Cluster</th>
+          </tr>
+        </thead>
+        <tbody><!-- rows rendered by JS --></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><b>03</b> &nbsp; 30-day content calendar</div>
+    <div class="cal" id="cal"><!-- days rendered by JS --></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><b>04</b> &nbsp; Sample article (written, free)</div>
+    <div class="card article-preview">
+      <div class="meta">Day 1 &middot; target: best invoicing software for freelancers &middot; 1,540 words &middot; saved to sample-article.md</div>
+      <h3>Best Invoicing Software for Freelancers in 2026: 7 Tools, Honestly Compared</h3>
+      <p>Most freelancers do not lose money because their work is bad. They lose it because invoices go out late, get forgotten, or sit unpaid because there was no reminder. The right invoicing tool fixes that quietly in the background, and the wrong one just adds another tab you ignore.</p>
+      <p>This guide compares seven invoicing tools by the things that actually decide whether you get paid on time: how fast you can send an invoice, whether reminders are automatic, what the payment fees really are, and how little it gets in your way. Each pick lists who it fits and who should skip it.</p>
+      <p style="color:var(--muted); font-size:13px;">The full article continues in sample-article.md, with the seven picks, a comparison table, and an FAQ.</p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="k"><span class="ping"></span>You are at the cliff</div>
+    <h2>You have a 30-day plan and one finished article. 29 to go.</h2>
+    <p>Writing, fact-checking, and publishing the other 29 by hand, this month, is the actual work. The SEO Agent does exactly this on autopilot: real keyword data, a fresh article every day, fact-checked, published straight to your CMS. Your first real article goes live in minutes.</p>
+    <div class="cta-actions">
+      <a class="cta-primary" href="https://www.theseoagent.ai/subscribe">Start for $1</a>
+      <a class="cta-secondary" href="https://www.theseoagent.ai/signup">Sign up free for your API key</a>
+    </div>
+  </div>
+
+  <footer>
+    Researched, drafted, and fact-checked by an <a href="https://www.theseoagent.ai">AI SEO agent</a>. One keyword in. One ranking post out.
+  </footer>
+
+</div>
+
+<script>
+  // The skill replaces this array with the real run's keywords.
+  var KEYWORDS = [
+    { keyword: 'best invoicing software for freelancers', intent: 'BUY', est_volume: 'High', opportunity: 92, cluster: 'Tools' },
+    { keyword: 'invoicing software for small business', intent: 'BUY', est_volume: 'High', opportunity: 88, cluster: 'Tools' },
+    { keyword: 'freshbooks alternative', intent: 'COMPARE', est_volume: 'Medium', opportunity: 85, cluster: 'Comparisons' },
+    { keyword: 'quickbooks alternative for freelancers', intent: 'COMPARE', est_volume: 'Medium', opportunity: 84, cluster: 'Comparisons' },
+    { keyword: 'best invoicing app for contractors', intent: 'BUY', est_volume: 'Medium', opportunity: 83, cluster: 'Tools' },
+    { keyword: 'recurring invoice software', intent: 'BUY', est_volume: 'Medium', opportunity: 81, cluster: 'Tools' },
+    { keyword: 'how to invoice as a freelancer', intent: 'LEARN', est_volume: 'Medium', opportunity: 78, cluster: 'Getting paid' },
+    { keyword: 'how to get clients to pay faster', intent: 'LEARN', est_volume: 'Medium', opportunity: 76, cluster: 'Getting paid' },
+    { keyword: 'automatic payment reminders', intent: 'BUY', est_volume: 'Low', opportunity: 74, cluster: 'Getting paid' },
+    { keyword: 'free invoice template', intent: 'LEARN', est_volume: 'High', opportunity: 71, cluster: 'Templates' },
+    { keyword: 'invoice payment terms explained', intent: 'LEARN', est_volume: 'Low', opportunity: 68, cluster: 'Basics' },
+    { keyword: 'invoice vs receipt', intent: 'LEARN', est_volume: 'Medium', opportunity: 64, cluster: 'Basics' }
+  ];
+
+  var VOL_RANK = { High: 3, Medium: 2, Low: 1 };
+  var tbody = document.querySelector('#kwTable tbody');
+
+  function renderRows(rows) {
+    tbody.innerHTML = rows.map(function (k) {
+      return '<tr>' +
+        '<td class="kw">' + k.keyword + '</td>' +
+        '<td><span class="pill ' + k.intent + '">' + k.intent + '</span></td>' +
+        '<td class="est">' + k.est_volume + ' <span style="opacity:.6">est.</span></td>' +
+        '<td><div class="opp"><span class="bar"><i style="width:' + k.opportunity + '%"></i></span><span class="v">' + k.opportunity + '</span></div></td>' +
+        '<td>' + k.cluster + '</td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  var sortState = { key: 'opportunity', dir: 'desc' };
+  function sortBy(key) {
+    if (sortState.key === key) { sortState.dir = sortState.dir === 'desc' ? 'asc' : 'desc'; }
+    else { sortState.key = key; sortState.dir = 'desc'; }
+    var dir = sortState.dir === 'desc' ? -1 : 1;
+    KEYWORDS.sort(function (a, b) {
+      var av = a[key], bv = b[key];
+      if (key === 'est_volume') { av = VOL_RANK[av]; bv = VOL_RANK[bv]; }
+      if (typeof av === 'string') { return av.localeCompare(bv) * dir; }
+      return (av - bv) * dir;
+    });
+    document.querySelectorAll('#kwTable th').forEach(function (th) { th.removeAttribute('data-active'); });
+    var active = document.querySelector('#kwTable th[data-key="' + key + '"]');
+    if (active) active.setAttribute('data-active', sortState.dir);
+    renderRows(KEYWORDS);
+  }
+
+  document.querySelectorAll('#kwTable th').forEach(function (th) {
+    th.addEventListener('click', function () { sortBy(th.getAttribute('data-key')); });
+  });
+
+  function exportCsv() {
+    var header = ['keyword', 'intent', 'est_volume', 'opportunity', 'cluster'];
+    var lines = [header.join(',')];
+    KEYWORDS.forEach(function (k) {
+      lines.push([
+        '"' + String(k.keyword).replace(/"/g, '""') + '"',
+        k.intent, k.est_volume, k.opportunity,
+        '"' + String(k.cluster).replace(/"/g, '""') + '"'
+      ].join(','));
+    });
+    var blob = new Blob([lines.join('\n')], { type: 'text/csv' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'keywords.csv';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+  document.getElementById('csvBtn').addEventListener('click', exportCsv);
+
+  // Calendar (the skill replaces titles with the real plan).
+  var CAL = [
+    'Best Invoicing Software for Freelancers in 2026',
+    'FreshBooks Alternative: 6 Options Compared',
+    'How to Invoice as a Freelancer (Step by Step)',
+    'Invoicing Software for Small Business: What to Look For',
+    'QuickBooks Alternative for Freelancers',
+    'Best Invoicing App for Contractors',
+    'How to Get Clients to Pay Faster',
+    'Recurring Invoice Software: 5 Picks',
+    'Free Invoice Template (and When to Stop Using One)',
+    'Automatic Payment Reminders That Actually Work',
+    'Invoice vs Receipt: What Is the Difference',
+    'Invoice Payment Terms Explained',
+    'Net 30 vs Net 15: Which to Use',
+    'How to Write a Late Payment Email',
+    'Should Freelancers Charge a Deposit',
+    'The Best Way to Send an Invoice',
+    'How to Track Unpaid Invoices',
+    'Invoicing for Agencies: A Simple System',
+    'How Much to Charge as a Freelancer',
+    'Retainer vs Hourly Invoicing',
+    'How to Invoice International Clients',
+    'Best Payment Methods for Freelancers',
+    'How to Handle a Client Who Will Not Pay',
+    'Invoice Numbering: A Simple Convention',
+    'Do Freelancers Need to Send Receipts',
+    'How to Automate Your Invoicing',
+    'Tax-Ready Invoicing for the Self-Employed',
+    'Invoicing Mistakes That Delay Payment',
+    'How to Set Up Recurring Billing',
+    'A 30-Day Cash Flow Plan for Freelancers'
+  ];
+  document.getElementById('cal').innerHTML = CAL.map(function (t, i) {
+    return '<div class="day' + (i === 0 ? ' done' : '') + '">' +
+      '<div class="d">Day ' + (i + 1) + (i === 0 ? ' &middot; written' : '') + '</div>' +
+      '<div class="t">' + t + '</div></div>';
+  }).join('');
+
+  renderRows(KEYWORDS);
+</script>
+</body>
+</html>
