@@ -64,7 +64,7 @@ That gap is the point. Doing real keyword research, writing a good article, fact
 
 When you want real data, daily auto-writing, and one-click publishing:
 
-1. **Sign up free** at [theseoagent.ai](https://www.theseoagent.ai/signup) and copy your API key from Settings.
+1. **Sign up free** at [theseoagent.ai](https://www.theseoagent.ai/signup) and copy your API key from [Settings -> API keys](https://www.theseoagent.ai/settings/api-keys).
 2. Drop it into `.env` as `THESEOAGENT_API_KEY` (see [`.env.example`](.env.example)).
 3. Start your trial for **$1** (3 days, then $99/mo, one click to cancel in-app). Your first real article goes live in minutes.
 
