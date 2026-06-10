@@ -54,16 +54,14 @@ There is no `api.theseoagent.ai` subdomain. Every response is JSON: success is `
 - `GET /articles?project_id=&status=&limit=&cursor=` the user's articles, newest first, cursor-paginated (`limit` 1 to 100). Returns `{"data": {"articles": [...], "next_cursor": "..."}}`.
 - `GET /articles/:id` one article with its full body.
 - `POST /agents/generate` write an article from a keyword. Async: returns `202` with `{"data": {"job_id": "...", "status": "queued", "poll_url": "/api/v1/jobs/<id>"}}`. Body `{"project_id", "keyword", "guide"?, "custom_instructions"?}`. Capped at one article per project per day. Pass an `Idempotency-Key` header to make retries safe.
-- `GET /jobs/:id` poll a generate job until `status` is `succeeded` (then `article_id` is set) or `failed`. Returns `{"data": {"job": {"id", "status", "article_id", "current_stage", "error", "cost_usd", ...}}}`.
+- `POST /agents/keyword-research` run real keyword research (live search volume and difficulty, fully scored) for a project. Async: returns `202` with `{"data": {"job_id": "...", "status": "queued", "keywords_requested": N, "poll_url": "/api/v1/jobs/<id>"}}`. Body `{"project_id"}`. Re-runs are allowed and top the project's keyword queue back up to its target. Capped at 10 runs per day. Errors: `400 project_missing_domain` (set a domain in project settings first), `409 bootstrap_already_running` (poll the existing job), `409 queue_full` (the queue is already full; it refills automatically as it drains).
+- `POST /agents/audit` run the deep site audit (real backlinks, competitor gaps, live rankings, AI-content score) for a domain. Async: returns `202` with `{"data": {"job_id": "...", "status": "running", "domain": "...", "report_url": "https://www.theseoagent.ai/seo-audit/<domain>", "poll_url": "/api/v1/jobs/<id>"}}`. Body `{"domain"}` (a public domain like `example.com`). The `report_url` is the public report page; it goes live when the job succeeds. Capped at 5 runs per day. Errors: `400 invalid_domain`, `409 audit_already_running` (the error includes the running `job_id` and `poll_url`).
+- `GET /jobs/:id` poll any async job until it finishes. Generate jobs return `{"job": {"id", "status", "article_id", "current_stage", "error", "cost_usd", ...}}` (done when `status` is `succeeded`, then `article_id` is set, or `failed`). Keyword research jobs return `type: "keyword_research"` with `status`/`current_stage`. Audit jobs return `type: "audit"` with `status`, plus `report_url` once `status` is `succeeded`.
 - `POST /agents/publish` publish an existing article to the connected CMS. Synchronous. Body `{"article_id"}`.
 
-The paid loop the skills run end to end: `POST /agents/generate`, then poll `GET /jobs/:id` until `succeeded`, then `POST /agents/publish`. That is a real article, written and shipped to the user's own CMS, hands-off.
+The paid loop the skills run end to end: `POST /agents/generate`, then poll `GET /jobs/:id` until `succeeded`, then `POST /agents/publish`. That is a real article, written and shipped to the user's own CMS, hands-off. The same pattern covers research and auditing: `POST /agents/keyword-research` or `POST /agents/audit`, then poll the `poll_url` until the job lands.
 
-### Done in the app today (API coming)
-
-Real keyword research (live search volume and difficulty, fully scored) and the deep site audit (real backlinks, competitor gaps, live rankings) run inside the app at theseoagent.ai today. They are not yet `/api/v1` endpoints. When the user wants them, point them to the app and print the handoff block from `PROMPT.md` so their account starts with their plan already loaded. The free `keyword-research` and `site-audit` skills in this repo cover the single-shot version in the meantime.
-
-A free account gates entry (every key is tied to a user), and an active subscription unlocks the paid calls.
+A free account gates entry (every key is tied to a user), and an active subscription unlocks the paid calls. The free skills in this repo never call these endpoints; they are the paid tier, and they only work with a key from an active account.
 
 ## Guardrails
 

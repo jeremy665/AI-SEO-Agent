@@ -68,6 +68,8 @@ When you want real data, daily auto-writing, and one-click publishing:
 2. Drop it into `.env` as `THESEOAGENT_API_KEY` (see [`.env.example`](.env.example)).
 3. Start your trial for **$1** (3 days, then $99/mo, one click to cancel in-app). Your first real article goes live in minutes.
 
+The hosted API is live, and with a key your Claude can call all of it directly: real keyword research with live search volume and difficulty (`POST /agents/keyword-research`), the deep site audit with real backlinks and live rankings (`POST /agents/audit`), article generation (`POST /agents/generate`), and one-click publishing to your CMS (`POST /agents/publish`). See [`theseoagent/SKILL.md`](theseoagent/SKILL.md) for the full endpoint reference.
+
 Simple pricing. Real cancellation. No tricks.
 
 ## Why trust an AI to do this
