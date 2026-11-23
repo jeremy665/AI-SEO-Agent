@@ -104,4 +104,4 @@ Yes. Reputable invoicing tools process payments through established providers an
 
 If you want to stop chasing invoices and start getting paid on time, pick the tool that sends fast and reminds automatically, then turn those reminders on. For most freelancers that means a focused invoicing tool over a heavy accounting suite. Get the habit automated and the late payments mostly take care of themselves.
 
-Researched, drafted, and fact-checked by an [AI SEO agent](https://www.theseoagent.ai).
+Researched, drafted, and fact-checked by an [AI SEO agent](https://www.theseoagent.ai/?utm_source=skill&utm_medium=github&utm_campaign=ai-seo-agent&utm_content=seo-workflow-sample-article).

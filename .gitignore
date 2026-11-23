@@ -3,14 +3,23 @@
 .env.local
 *.key
 
-# Agent output (generated into your working dir when you run the skill)
+# Skill output written into the working folder when you run a skill here.
+# Anchored to the repo root so the templates under skills/ stay tracked.
 /output/
-dashboard.html
-keywords.csv
-sample-article.md
-!examples/dashboard.html
-!examples/keywords.csv
-!examples/sample-article.md
+/evidence/
+/dashboard.html
+/keywords.csv
+/sample-article.md
+/article.md
+/article.html
+/ai-overview-visibility-plan.yaml
+/ai-overview-visibility-gap-report.md
+/ai-overview-visibility-validation.md
+
+# Skills installed into this folder by the skills CLI while testing
+/.agents/
+/.claude/
+/skills-lock.json
 
 # OS / editor
 .DS_Store
@@ -18,11 +27,11 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Python (optional pytrends helper)
+# Python (if you script around the skills)
 __pycache__/
 *.pyc
 .venv/
 venv/
 
-# Node (if you script around the skill)
+# Node (if you script around the skills)
 node_modules/

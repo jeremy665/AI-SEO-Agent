@@ -1,0 +1,28 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Start here",
+      "description": "Check whether Google's AI answer cites your site, who it cites instead, and what to fix.",
+      "skills": ["ai-overview-visibility"]
+    },
+    {
+      "title": "Full SEO pass",
+      "description": "Audit, keyword research, a 30-day plan, one finished article and a dashboard, in one run.",
+      "skills": ["seo-workflow"]
+    },
+    {
+      "title": "Single steps",
+      "description": "Each step of the SEO workflow on its own.",
+      "skills": [
+        "seo-site-audit",
+        "seo-keyword-research",
+        "seo-content-writing",
+        "seo-content-review",
+        "seo-backlink-swaps",
+        "seo-article-export"
+      ]
+    }
+  ]
+}
