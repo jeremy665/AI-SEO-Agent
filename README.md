@@ -6,7 +6,12 @@ Install every skill with one line:
 npx skills add jeremy665/AI-SEO-Agent
 ```
 
-Just the AI Overview check: `npx skills add jeremy665/AI-SEO-Agent --skill ai-overview-visibility`. Add `-g` to install for all your projects. Works in Claude Code and the other agents the skills CLI supports. No account and no API key.
+Install one check on its own:
+
+- AI Overview check: `npx skills add jeremy665/AI-SEO-Agent --skill ai-overview-visibility`
+- Core update check: `npx skills add jeremy665/AI-SEO-Agent --skill core-update-check`
+
+Add `-g` to install for all your projects. Works in Claude Code and the other agents the skills CLI supports. No account and no API key.
 
 ## Start here: does Google's AI answer cite your site?
 
@@ -28,6 +33,25 @@ Use the ai-overview-visibility skill to check example.com for "proposal software
 ```
 
 A full worked report for a made-up company: [fictional-gap-report.md](skills/ai-overview-visibility/examples/fictional-gap-report.md).
+
+## Core update check: what helps or hurts your site in a Google core update
+
+`core-update-check` audits a live website against what Google's core updates reward and punish, using only your public sitemap and fetched HTML.
+
+1. It reads `robots.txt` and your sitemap to map your pages, spot publishing bursts or off-topic sections, and pick a real cross-section of 12 to 20 pages (plus any dropped URLs you name).
+2. It fetches each live page and checks seven areas: technical and indexation blockers, duplicate titles and metadata, scaled low-value content and contradicted claims, first-hand evidence, depth for longer multi-part questions, topic hubs and internal links, and site-wide trust signals.
+3. If you paste a Google Search Console export or use your own Search Console connection, it checks before and after clicks with a built-in small-sample noise check so normal swings on a small site do not get misread as a penalty.
+4. It writes `core-update-check-report.md`: a per-page scorecard, four triage buckets (fix now, merge or prune, strengthen, keep), and concrete rewrite instructions for your top pages.
+
+Every finding cites the exact URL and quotes what is on the live page. It never guesses rankings or traffic, never claims an "AI percentage" score, and never edits your site.
+
+Try it:
+
+```text
+Use the core-update-check skill to check example.com.
+```
+
+A full worked report for a made-up company: [fictional-core-update-report.md](skills/core-update-check/examples/fictional-core-update-report.md).
 
 ## The other skills
 

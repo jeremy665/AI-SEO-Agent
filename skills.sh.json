@@ -4,8 +4,8 @@
   "groupings": [
     {
       "title": "Start here",
-      "description": "Check whether Google's AI answer cites your site, who it cites instead, and what to fix.",
-      "skills": ["ai-overview-visibility"]
+      "description": "Free diagnostic checks for Google's AI answers and Google core updates.",
+      "skills": ["ai-overview-visibility", "core-update-check"]
     },
     {
       "title": "Full SEO pass",

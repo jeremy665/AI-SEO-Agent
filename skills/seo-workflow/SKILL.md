@@ -12,6 +12,8 @@ Be blunt, technical and honest. Never use em dashes. Use periods, commas, colons
 
 Run the flow below end to end unless the user asks for one step only. If the matching single-step skill is installed (`seo-site-audit`, `seo-keyword-research`, `seo-content-writing`, `seo-content-review`), follow it for that step. If it is not installed, the summary in each step below is enough.
 
+For standalone diagnostic checks outside the full pass, use `ai-overview-visibility` (to check whether Google's AI Overview cites the site) or `core-update-check` (to check core-update readiness, scaled-content risk, or post-update triage) if those skills are installed.
+
 ## Step 1. Brief and site audit
 
 Ask the user, in one message, for:

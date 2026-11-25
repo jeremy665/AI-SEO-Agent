@@ -15,6 +15,7 @@
 /ai-overview-visibility-plan.yaml
 /ai-overview-visibility-gap-report.md
 /ai-overview-visibility-validation.md
+/core-update-check-report.md
 
 # Skills installed into this folder by the skills CLI while testing
 /.agents/
